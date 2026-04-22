@@ -22,7 +22,7 @@ p {
 }
 
 .container {
-  background: white;
+  background: whitesmoke;
   max-width: 650px;
   margin: auto;
   padding: 40px;
@@ -33,7 +33,7 @@ p {
 .video-section {
   text-align: center;
   padding: 20px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   margin-top: 20px;
 }
@@ -41,7 +41,19 @@ p {
 .image-section {
   text-align: center;
   padding: 20px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   margin-top: 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #bcbcbc;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 5px;
 }
