@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      margin-top: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      width: 60px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .score {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 14px;
+      font-size: 14px;
+      background-color: #e0e0e0;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background-color: #c8c8c8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back-btn">Home Page</a>
+  <a href="fromScratch.html" class="back-btn">Dogs Page</a>
+  <h1>Guess 1–5</h1>
+  <p>First to 5 points wins!</p>
+
+  <input type="number" id="guess" min="1" max="5">
+  <br>
+  <button onclick="playGame()">Submit Guess</button>
+
+  <div class="message" id="message"></div>
+
+  <div class="score">
+    You: <span id="playerScore">0</span> |
+    Computer: <span id="computerScore">0</span>
+  </div>
+
+  <button onclick="resetGame()" style="margin-top:15px;">Restart Game</button>
+</div>
+
+<script>
+  let playerScore = 0;
+  let computerScore = 0;
+  const maxScore = 5;
+
+  function playGame() {
+    const guessInput = document.getElementById("guess");
+    const message = document.getElementById("message");
+
+    let playerGuess = parseInt(guessInput.value);
+
+    if (!playerGuess || playerGuess < 1 || playerGuess > 5) {
+      message.textContent = "Please enter a number between 1 and 5.";
+      return;
+    }
+
+    let computerNumber = Math.floor(Math.random() * 5) + 1;
+
+    if (playerGuess === computerNumber) {
+      playerScore++;
+      message.textContent = `Correct! The number was ${computerNumber}. You get a point!`;
+    } else {
+      computerScore++;
+      message.textContent = `Wrong! The number was ${computerNumber}. Computer gets a point.`;
+    }
+
+    document.getElementById("playerScore").textContent = playerScore;
+    document.getElementById("computerScore").textContent = computerScore;
+
+    if (playerScore === maxScore) {
+      message.textContent = "🎉 You win the game!";
+      disableGame();
+    } else if (computerScore === maxScore) {
+      message.textContent = "💻 Computer wins the game!";
+      disableGame();
+    }
+
+    guessInput.value = "";
+  }
+
+  function disableGame() {
+    document.querySelector("button").disabled = true;
+  }
+
+  function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+
+    document.getElementById("playerScore").textContent = 0;
+    document.getElementById("computerScore").textContent = 0;
+    document.getElementById("message").textContent = "";
+
+    document.querySelector("button").disabled = false;
+  }
+</script>
+</body>
+</html>
