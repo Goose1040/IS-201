@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  color: #373330;
+  text-align: center;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  color: #7a5c44;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  color: #555;
+  line-height: 1.6;
+}
+
+.container {
+  background: whitesmoke;
+  max-width: 650px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.video-section {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.image-section {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #bcbcbc;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 5px;
+}
